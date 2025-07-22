@@ -4,7 +4,7 @@ import "./page.css"
 import Toggle from './components/Toggle/Toggle'
 import RestaurantCard from './components/RestaurantCard/RestaurantCard';
 import InsightsView from './components/InsightsView/InsightsView';
-
+import { Neuo } from './font';
 const Page = () => {
   const [toggle, setToggle] = useState('top3');
   const [restaurants, setRestaurants] = useState([]);
@@ -45,7 +45,7 @@ const Page = () => {
   }
 
   return (
-    <div className="dashboard-container">
+    <div className= {`dashboard-container ${Neuo.className}`}>
       <header className="dashboard-header">
         <h1>Restaurant insights</h1>
         <p>Track daily orders, revenue, and customer trends to help restaurants make smarter decisions.</p>

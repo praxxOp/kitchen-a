@@ -11,20 +11,21 @@
   box-sizing: border-box;
 }
 
-
 .toggle-glider {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
   background: #1c1c1e;
   border-radius: 26px;
-  height: 100%;
-  width: 50%;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
 }
 
-
 .toggle-pill.show-list .toggle-glider {
-  transform: translateX(calc(100% + 4px));
+  transform: translateX(100%);
 }
 
 .toggle-btn {
@@ -40,7 +41,7 @@
   transition: color 0.35s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-
 .toggle-btn.active {
   color: #fff;
+  font-weight: 700;
 }

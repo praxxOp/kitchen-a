@@ -1,9 +1,9 @@
 import React from 'react';
 import './RestaurantCard.css';
-
+import { Neuo } from '@/app/font';
 const RestaurantCard = ({ restaurant, onSelect }) => {
   return (
-    <div className="restaurant-card">
+    <div className={`restaurant-card ${Neuo.className}`}      >
       <div className="card-content">
         <div className="card-header">
           <h2>{restaurant.name}</h2>
