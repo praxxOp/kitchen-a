@@ -64,7 +64,7 @@ const InsightsView = ({ restaurant, orders, onBack }) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="orders" fill="1E1E1E" />
+                <Bar dataKey="orders" fill="1E1E1E" radius={[10, 10, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -77,7 +77,7 @@ const InsightsView = ({ restaurant, orders, onBack }) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="revenue" fill="1E1E1E" />
+                <Bar dataKey="revenue" fill="1E1E1E" radius={[10, 10, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
