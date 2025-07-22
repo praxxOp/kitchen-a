@@ -28,13 +28,15 @@ const Page = () => {
       acc[order.restaurant_id] = (acc[order.restaurant_id] || 0) + order.order_amount;
       return acc;
     }, {});
-
-    const sortedByRevenue = Object.entries(revenueByRestaurant)
+    const sorted = Object.entries(revenueByRestaurant)
       .sort(([, a], [, b]) => b - a)
       .slice(0, 3)
-      .map(([id]) => restaurants.find(r => r.id === parseInt(id)));
-
-    return sortedByRevenue;
+      .map(([id], idx) => {
+        const rest = restaurants.find(r => r.id === parseInt(id));
+        return rest ? { ...rest, rank: idx } : null;
+      })
+      .filter(Boolean);
+    return sorted;
   }
 
   const displayedRestaurants = toggle === 'top3' ? getTopRestaurants() : restaurants;
@@ -57,7 +59,16 @@ const Page = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          displayedRestaurants.map((r) => r && <RestaurantCard restaurant={r} key={r.id} onSelect={() => setSelectedRestaurant(r)} />)
+          displayedRestaurants.map((r, i) =>
+            r && (
+              <RestaurantCard
+                restaurant={r}
+                key={r.id}
+                onSelect={() => setSelectedRestaurant(r)}
+                rank={toggle === 'top3' ? (typeof r.rank === 'number' ? r.rank : i) : undefined}
+              />
+            )
+          )
         )}
       </div>
     </div>

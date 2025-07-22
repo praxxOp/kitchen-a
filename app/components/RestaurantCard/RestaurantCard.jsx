@@ -1,9 +1,13 @@
 import React from 'react';
 import './RestaurantCard.css';
 import { Neuo } from '@/app/font';
-const RestaurantCard = ({ restaurant, onSelect }) => {
+
+const RestaurantCard = ({ restaurant, onSelect, rank }) => {
   return (
-    <div className={`restaurant-card ${Neuo.className}`}      >
+    <div className="restaurant-card">
+      {typeof rank === 'number' && (
+        <div>#{rank + 1}</div>
+      )}
       <div className="card-content">
         <div className="card-header">
           <h2>{restaurant.name}</h2>
