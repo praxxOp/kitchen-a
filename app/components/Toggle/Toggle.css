@@ -45,3 +45,22 @@
   color: #fff;
   font-weight: 700;
 }
+
+@media (max-width: 600px) {
+  .toggle-pill {
+    width: 98vw;
+    height: 44px;
+    border-radius: 18px;
+    padding: 2px;
+  }
+  .toggle-glider {
+    border-radius: 16px;
+    height: 100%;
+    width: 50%;
+  }
+  .toggle-btn {
+    font-size: 0.95rem;
+    border-radius: 0;
+    padding: 0;
+  }
+}
