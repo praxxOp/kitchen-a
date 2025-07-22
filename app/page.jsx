@@ -31,9 +31,9 @@ const Page = () => {
     const sorted = Object.entries(revenueByRestaurant)
       .sort(([, a], [, b]) => b - a)
       .slice(0, 3)
-      .map(([id], idx) => {
+      .map(([id, revenue], idx) => {
         const rest = restaurants.find(r => r.id === parseInt(id));
-        return rest ? { ...rest, rank: idx } : null;
+        return rest ? { ...rest, rank: idx, revenue } : null;
       })
       .filter(Boolean);
     return sorted;
@@ -66,6 +66,7 @@ const Page = () => {
                 key={r.id}
                 onSelect={() => setSelectedRestaurant(r)}
                 rank={toggle === 'top3' ? (typeof r.rank === 'number' ? r.rank : i) : undefined}
+                revenue={toggle === 'top3' ? r.revenue : undefined}
               />
             )
           )

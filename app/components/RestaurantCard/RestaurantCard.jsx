@@ -2,7 +2,7 @@ import React from 'react';
 import './RestaurantCard.css';
 import { Neuo } from '@/app/font';
 
-const RestaurantCard = ({ restaurant, onSelect, rank }) => {
+const RestaurantCard = ({ restaurant, onSelect, rank, revenue }) => {
   return (
     <div className="restaurant-card">
       {typeof rank === 'number' && (
@@ -12,6 +12,9 @@ const RestaurantCard = ({ restaurant, onSelect, rank }) => {
         <div className="card-header">
           <h2>{restaurant.name}</h2>
           <p>{restaurant.location}</p>
+          {typeof revenue === 'number' && (
+            <div>Total Revenue of 7 days: ₹{revenue}</div>
+          )}
         </div>
         <div className="card-details">
           <button className="view-insights-btn" onClick={onSelect}>View Insights</button>
