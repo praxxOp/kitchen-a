@@ -15,7 +15,7 @@ const Page = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('/api/restaurants' ).then(res => res.json()),
+      fetch('/api/restaurants').then(res => res.json()),
       fetch('/api/orders').then(res => res.json())
     ]).then(([restaurantData, orderData]) => {
       setRestaurants(restaurantData);
