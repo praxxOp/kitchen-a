@@ -11,6 +11,7 @@ const Page = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  
 
   useEffect(() => {
     Promise.all([
@@ -57,7 +58,7 @@ const Page = () => {
       </div>
       <div className="dashboard-card-grid">
         {loading ? (
-          <div>Loading...</div>
+          <div>Loading...</div> 
         ) : (
           displayedRestaurants.map((r, i) =>
             r && (
